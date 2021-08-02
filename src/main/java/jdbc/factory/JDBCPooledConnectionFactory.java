@@ -19,6 +19,8 @@ public interface JDBCPooledConnectionFactory {
 
     void registerShutDownListener();
 
+    void init();
+
     void shutdown();
 
 }

@@ -26,6 +26,12 @@ public abstract class AbstractJDBCPooledConnectionFactory implements JDBCPooledC
         this.usedConnections = Collections.synchronizedList(new ArrayList<>(0));
         this.jdbcPooledConnectionFactoryShutDownListener = new Thread(this::shutdown);
         this.lock = new Object();
+
+        this.init();
+    }
+
+    public void init() {
+        this.registerShutDownListener();
     }
 
     @Override
